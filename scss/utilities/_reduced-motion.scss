@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+@include respond(reduced-motion) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover,
+  .card:focus-within { transform: none; }
+  .card:hover .card__img,
+  .card:focus-within .card__img { transform: none; }
+}

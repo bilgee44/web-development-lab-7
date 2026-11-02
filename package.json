@@ -1,0 +1,14 @@
+{
+  "name": "lab7-scss",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лаб 7: Sass/SCSS refactoring (Лаб 6-ийн gallery)",
+  "scripts": {
+    "build:dev": "sass scss/main.scss css/style.css --style=expanded --source-map",
+    "build": "sass scss/main.scss css/style.min.css --style=compressed --no-source-map",
+    "watch": "sass --watch scss/main.scss:css/style.css --style=expanded --source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+
+// Light (default)
+:root {
+  @include emit-vars($theme-light);
+  @include emit-vars($radii);
+  @include emit-vars($motion);
+  @include emit-vars($spacing);
+  color-scheme: light;
+}
+
+// Dark: товчоор
+:root[data-theme="dark"] {
+  @include emit-vars($theme-dark);
+  color-scheme: dark;
+}
+
+// Dark: системийн тохиргоогоор (хэрэглэгч гараар light сонгоогүй бол)
+@include respond(dark) {
+  :root:not([data-theme="light"]) {
+    @include emit-vars($theme-dark);
+    color-scheme: dark;
+  }
+}

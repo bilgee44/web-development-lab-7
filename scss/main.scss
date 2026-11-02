@@ -1,0 +1,17 @@
+// Лаб 7 — үндсэн оролт. Дараалал нь cascade-д чухал.
+@use "base/root";
+@use "base/base";
+
+@use "layout/header";
+@use "layout/intro";
+@use "layout/gallery";
+@use "layout/footer";
+
+@use "components/skip-link";
+@use "components/button";
+@use "components/card";
+@use "components/loader";
+@use "components/media";
+
+@use "utilities/utilities";
+@use "utilities/reduced-motion"; // хамгийн сүүлд — override хийх тул

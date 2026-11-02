@@ -1,0 +1,17 @@
+@use "../abstracts" as *;
+
+.intro {
+  @include container;
+  padding-block: 1.5rem 1rem;
+
+  &__title {
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    line-height: 1.15;
+  }
+  &__text {
+    margin: 0;
+    color: var(--muted);
+    max-width: 60ch;
+  }
+}

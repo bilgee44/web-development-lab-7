@@ -1,0 +1,14 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, "Noto Sans", sans-serif;
+  line-height: 1.55;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color var(--dur), color var(--dur);
+}
+
+img, video, iframe { max-width: 100%; display: block; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }

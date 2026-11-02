@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "functions" as *;
+
+// ---------- Өнгө ----------
+$palette-light: (
+  "bg": #eef2f4,
+  "surface": #ffffff,
+  "text": #14212b,
+  "muted": #4a5b68,
+  "primary": #0b4f8a,
+  "accent": #e0a100,
+  "back": #0b4f8a,
+  "focus": #c2410c,
+);
+
+$palette-dark: (
+  "bg": #0d151c,
+  "surface": #16222c,
+  "text": #e8eff4,
+  "muted": #a9bac6,
+  "primary": #6cb4ee,
+  "accent": #f2b824,
+  "back": #1f3a52,
+  "focus": #fbbf24,
+);
+
+// ---------- Сүүдэр (theme бүрт өөр) ----------
+$shadows-light: (
+  "shadow": "0 2px 6px rgb(20 33 43 / .12)",
+  "shadow-lift": "0 14px 28px rgb(20 33 43 / .22)",
+);
+$shadows-dark: (
+  "shadow": "0 2px 6px rgb(0 0 0 / .5)",
+  "shadow-lift": "0 14px 28px rgb(0 0 0 / .6)",
+);
+
+// ---------- Радиус, хугацаа, зай ----------
+$radii: (
+  "radius": rem(14),
+  "radius-sm": rem(8),
+);
+
+$motion: (
+  "dur-fast": 180ms,
+  "dur": 320ms,
+  "dur-flip": 700ms,
+  "ease": "cubic-bezier(.2, .7, .2, 1)",
+);
+
+$spacing: (
+  "gap": "clamp(1rem, 2.5vw, 1.75rem)",
+);
+
+// ---------- Breakpoint (min-width) ----------
+$breakpoints: (
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+);
+
+// ---------- Media feature query ----------
+$features: (
+  "dark": "(prefers-color-scheme: dark)",
+  "reduced-motion": "(prefers-reduced-motion: reduce)",
+);
+
+// ---------- Theme бүрийн text өнгийг contrast()-аар тооцно ----------
+$on-light-theme: (
+  "primary-text": contrast(map.get($palette-light, "primary"), #ffffff, #0d151c),
+  "back-text": contrast(map.get($palette-light, "back"), #ffffff, #0d151c),
+);
+$on-dark-theme: (
+  "primary-text": contrast(map.get($palette-dark, "primary"), #e8eff4, #0d151c),
+  "back-text": contrast(map.get($palette-dark, "back"), #e8eff4, #0d151c),
+);
+
+$theme-light: map.merge(map.merge($palette-light, $on-light-theme), $shadows-light);
+$theme-dark: map.merge(map.merge($palette-dark, $on-dark-theme), $shadows-dark);

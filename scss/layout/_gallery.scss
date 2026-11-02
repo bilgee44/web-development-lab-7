@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+.gallery {
+  @include container;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: var(--gap);
+  padding-block: 1rem 2.5rem;
+}

@@ -1,0 +1,41 @@
+@use "sass:color";
+@use "sass:math";
+
+$root-font-size: 16 !default;
+
+/// px -> rem. rem(14) => .875rem
+@function rem($px, $base: $root-font-size) {
+  @return math.div($px, $base) * 1rem;
+}
+
+/// Нэг сувгийн sRGB -> шугаман утга (WCAG)
+@function -channel-lin($v) {
+  $c: math.div($v, 255);
+  @if $c <= 0.03928 {
+    @return math.div($c, 12.92);
+  }
+  @return math.pow(math.div($c + 0.055, 1.055), 2.4);
+}
+
+/// Харьцангуй гэрэлтэлт (WCAG 2.x)
+@function luminance($c) {
+  $r: -channel-lin(color.channel($c, "red", $space: rgb));
+  $g: -channel-lin(color.channel($c, "green", $space: rgb));
+  $b: -channel-lin(color.channel($c, "blue", $space: rgb));
+  @return 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+}
+
+/// Хоёр өнгийн contrast ratio (1–21)
+@function contrast-ratio($a, $b) {
+  $la: luminance($a);
+  $lb: luminance($b);
+  @return math.div(math.max($la, $lb) + 0.05, math.min($la, $lb) + 0.05);
+}
+
+/// $bg дээр илүү уншигдахуйц текстийн өнгийг сонгоно
+@function contrast($bg, $light: #fff, $dark: #000) {
+  @if contrast-ratio($bg, $light) >= contrast-ratio($bg, $dark) {
+    @return $light;
+  }
+  @return $dark;
+}

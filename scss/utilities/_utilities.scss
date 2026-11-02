@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+// @each-ээр utility класс үүсгэнэ (HTML-д ашиглаагүй бол харагдацад нөлөөлөхгүй)
+$spacers: (0: 0, 1: 0.25rem, 2: 0.5rem, 3: 1rem, 4: 1.5rem, 5: 3rem);
+$sides: ("t": "top", "r": "right", "b": "bottom", "l": "left");
+$text-tokens: ("muted", "primary", "accent");
+
+@each $key, $size in $spacers {
+  .u-m-#{$key} { margin: $size; }
+  .u-p-#{$key} { padding: $size; }
+  @each $abbr, $side in $sides {
+    .u-m#{$abbr}-#{$key} { margin-#{$side}: $size; }
+    .u-p#{$abbr}-#{$key} { padding-#{$side}: $size; }
+  }
+}
+
+@each $token in $text-tokens {
+  .u-text-#{$token} { color: var(--#{$token}); }
+  .u-bg-#{$token} { background-color: var(--#{$token}); }
+}
+
+@each $bp, $width in $breakpoints {
+  @include respond($bp) {
+    .u-hide-#{$bp}-up { display: none !important; }
+  }
+}
+
+.u-flex-center { @include flex-center(0.5rem, center); }
+.u-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

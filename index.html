@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зургийн цомог портал — Gallery</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#gallery">Үндсэн агуулга руу очих</a>
+
+  <!-- Loader: ачаалж дууссаны дараа script.js нууна -->
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <span class="loader__ring" aria-hidden="true"></span>
+    <span class="loader__text">Ачаалж байна…</span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Зургийн цомог — нүүр">
+      <!-- Inline SVG лого -->
+      <svg class="brand__logo" viewBox="0 0 48 48" width="40" height="40" role="img" aria-labelledby="logo-title">
+        <title id="logo-title">Зургийн цомгийн лого</title>
+        <rect x="3" y="9" width="42" height="32" rx="6" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="16" cy="20" r="4" fill="var(--accent)"/>
+        <path d="M6 38l12-12 8 8 6-6 10 10z" fill="currentColor"/>
+        <path d="M17 9l3-5h8l3 5" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand__name">Зургийн цомог</span>
+    </a>
+    <button class="btn" id="theme-toggle" type="button" aria-pressed="false">
+      <span id="theme-label">Харанхуй горим</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1 class="intro__title">Монголын дөрвөн улирал</h1>
+      <p class="intro__text">Картыг дээр нь гүйлгэхэд өргөгдөнө. «Эргүүлэх» товчоор зургийн мэдээллийг үзнэ.</p>
+    </section>
+
+    <section id="gallery" class="gallery" aria-label="Зургийн цомог">
+      <article class="card" style="--i:0">
+        <div class="card__inner">
+          <figure class="card__face card__front">
+            <img class="card__img" src="img/photo1.jpg" alt="Говийн элсэн манхан дээр жаргаж буй нар" width="600" height="450" loading="lazy">
+            <figcaption class="card__caption">Говийн жаргал</figcaption>
+          </figure>
+          <div class="card__face card__back" aria-hidden="true">
+            <dl class="card__list">
+              <dt class="card__term">Нэр</dt><dd class="card__desc">Говийн жаргал</dd>
+              <dt class="card__term">Огноо</dt><dd class="card__desc">2025-08-14</dd>
+              <dt class="card__term">Газар</dt><dd class="card__desc">Хонгорын элс, Өмнөговь</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn card__flip" type="button" aria-pressed="false">Эргүүлэх</button>
+      </article>
+
+      <article class="card" style="--i:1">
+        <div class="card__inner">
+          <figure class="card__face card__front">
+            <img class="card__img" src="img/photo2.jpg" alt="Хөвсгөл нуурын эрэг дээрх шилмүүст ой" width="600" height="450" loading="lazy">
+            <figcaption class="card__caption">Хөвсгөлийн өглөө</figcaption>
+          </figure>
+          <div class="card__face card__back" aria-hidden="true">
+            <dl class="card__list">
+              <dt class="card__term">Нэр</dt><dd class="card__desc">Хөвсгөлийн өглөө</dd>
+              <dt class="card__term">Огноо</dt><dd class="card__desc">2025-06-02</dd>
+              <dt class="card__term">Газар</dt><dd class="card__desc">Хөвсгөл нуур, Хатгал</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn card__flip" type="button" aria-pressed="false">Эргүүлэх</button>
+      </article>
+
+      <article class="card" style="--i:2">
+        <div class="card__inner">
+          <figure class="card__face card__front">
+            <img class="card__img" src="img/photo3.jpg" alt="Хангайн нурууны намрын тал" width="600" height="450" loading="lazy">
+            <figcaption class="card__caption">Хангайн намар</figcaption>
+          </figure>
+          <div class="card__face card__back" aria-hidden="true">
+            <dl class="card__list">
+              <dt class="card__term">Нэр</dt><dd class="card__desc">Хангайн намар</dd>
+              <dt class="card__term">Огноо</dt><dd class="card__desc">2024-09-21</dd>
+              <dt class="card__term">Газар</dt><dd class="card__desc">Орхоны хөндий, Архангай</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn card__flip" type="button" aria-pressed="false">Эргүүлэх</button>
+      </article>
+
+      <article class="card" style="--i:3">
+        <div class="card__inner">
+          <figure class="card__face card__front">
+            <img class="card__img" src="img/photo4.jpg" alt="Цасан дээгүүр гарсан гэрийн утаа" width="600" height="450" loading="lazy">
+            <figcaption class="card__caption">Өвлийн гэр</figcaption>
+          </figure>
+          <div class="card__face card__back" aria-hidden="true">
+            <dl class="card__list">
+              <dt class="card__term">Нэр</dt><dd class="card__desc">Өвлийн гэр</dd>
+              <dt class="card__term">Огноо</dt><dd class="card__desc">2025-01-11</dd>
+              <dt class="card__term">Газар</dt><dd class="card__desc">Тэрэлж, Төв аймаг</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn card__flip" type="button" aria-pressed="false">Эргүүлэх</button>
+      </article>
+
+      <article class="card" style="--i:4">
+        <div class="card__inner">
+          <figure class="card__face card__front">
+            <img class="card__img" src="img/photo5.jpg" alt="Цагаан нуурын эрэг дээрх тугал" width="600" height="450" loading="lazy">
+            <figcaption class="card__caption">Цагаан нуур</figcaption>
+          </figure>
+          <div class="card__face card__back" aria-hidden="true">
+            <dl class="card__list">
+              <dt class="card__term">Нэр</dt><dd class="card__desc">Цагаан нуур</dd>
+              <dt class="card__term">Огноо</dt><dd class="card__desc">2024-07-30</dd>
+              <dt class="card__term">Газар</dt><dd class="card__desc">Тарвагатай, Архангай</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn card__flip" type="button" aria-pressed="false">Эргүүлэх</button>
+      </article>
+
+      <article class="card" style="--i:5">
+        <div class="card__inner">
+          <figure class="card__face card__front">
+            <img class="card__img" src="img/photo6.jpg" alt="Улаанбаатар хотын шөнийн гэрэл" width="600" height="450" loading="lazy">
+            <figcaption class="card__caption">Хотын шөнө</figcaption>
+          </figure>
+          <div class="card__face card__back" aria-hidden="true">
+            <dl class="card__list">
+              <dt class="card__term">Нэр</dt><dd class="card__desc">Хотын шөнө</dd>
+              <dt class="card__term">Огноо</dt><dd class="card__desc">2025-10-05</dd>
+              <dt class="card__term">Газар</dt><dd class="card__desc">Сүхбаатарын талбай, Улаанбаатар</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn card__flip" type="button" aria-pressed="false">Эргүүлэх</button>
+      </article>
+    </section>
+
+    <section class="media" aria-labelledby="media-title">
+      <h2 class="media__title" id="media-title">Видео ба газрын зураг</h2>
+      <div class="media__grid">
+        <figure class="media__item">
+          <video class="media__player" controls preload="metadata" playsinline width="640" height="360">
+            <source src="video/clip.webm" type="video/webm">
+            <source src="video/clip.mp4" type="video/mp4">
+            <track kind="captions" src="video/clip.mn.vtt" srclang="mn" label="Монгол" default>
+            Таны хөтөч видеог дэмжихгүй байна.
+          </video>
+          <figcaption class="media__caption">Тэрэлжийн богино клип (монгол хадмалтай)</figcaption>
+        </figure>
+        <figure class="media__item">
+          <iframe class="media__player"
+            title="Улаанбаатар хотын газрын зураг (OpenStreetMap)"
+            src="https://maps.google.com/maps?q=47.9184,106.9177&amp;z=14&amp;hl=mn&amp;output=embed"
+            loading="lazy" width="640" height="360"
+            sandbox="allow-scripts allow-same-origin"
+            referrerpolicy="no-referrer"></iframe>
+          <figcaption class="media__caption">Зургуудыг авсан байршил — Улаанбаатар. <a class="media__link" href="https://www.openstreetmap.org/?mlat=47.9184&amp;mlon=106.9177#map=15/47.9184/106.9177">Томоор харах</a></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><p class="site-footer__text">Лаб 7 · CSS3 animation, transform, custom properties</p></footer>
+</body>
+</html>

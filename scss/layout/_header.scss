@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+.site-header {
+  @include flex-center(1rem, space-between);
+  padding: 0.9rem var(--gap);
+}
+
+.brand {
+  @include flex-center(0.6rem);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem;
+
+  &__logo { color: var(--primary); }
+}

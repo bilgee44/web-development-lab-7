@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "tokens" as *;
+
+/// respond(md) -> @media (min-width: 768px)
+/// respond(dark) / respond(reduced-motion) -> feature query
+@mixin respond($key) {
+  @if map.has-key($breakpoints, $key) {
+    @media (min-width: map.get($breakpoints, $key)) { @content; }
+  } @else if map.has-key($features, $key) {
+    @media #{map.get($features, $key)} { @content; }
+  } @else {
+    @error "respond(): '#{$key}' олдсонгүй. Боломжит: #{map.keys($breakpoints)}, #{map.keys($features)}";
+  }
+}
+
+/// Flex контейнер, босоо тэнхлэгт төвлөрүүлнэ
+@mixin flex-center($gap: 0, $justify: flex-start) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  @if $gap != 0 { gap: $gap; }
+}
+
+/// Map-ийг custom property болгон гаргана
+@mixin emit-vars($map) {
+  @each $name, $value in $map {
+    --#{$name}: #{$value};
+  }
+}
+
+/// Хуудасны дунд байрлах контейнер
+@mixin container($max: 1200px) {
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: var(--gap);
+}
