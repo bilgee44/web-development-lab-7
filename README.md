@@ -7,3 +7,4 @@ npm run build       # css/style.min.css (compressed) — index.html үүнийг
 npm run watch       # хөгжүүлэлтийн үед
 ```
 `scss/` бүтэц: abstracts (tokens, functions, mixins) · base · layout · components · utilities
+# web-development-lab-7
